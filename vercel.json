@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "get-avataaar",
+  "alias": ["get-avataaar.now.sh"],
+  "builds": [
+    {
+      "src": "api/**/*",
+      "use": "@now/go"
+    }
+  ]
+}
