@@ -1,11 +1,16 @@
 package api
 
 import (
-	"fmt"
+	"get-avataaar/types"
+	"get-avataaar/utils"
 	"net/http"
 )
 
 // Handler - main handler function
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello, World!</h1>")
+	res := types.Response{
+		URL: utils.GenerateURL(),
+	}
+
+	utils.MarshalAndRespond(w, res)
 }
