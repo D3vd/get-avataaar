@@ -6,10 +6,10 @@ import (
 	"net/http"
 )
 
-// Handler - main handler function
-func Handler(w http.ResponseWriter, r *http.Request) {
+// CircleHandler - circle handler function
+func CircleHandler(w http.ResponseWriter, r *http.Request) {
 	res := types.Response{
-		URL: utils.GenerateURL(""),
+		URL: utils.GenerateURL("Circle"),
 	}
 
 	utils.MarshalAndRespond(w, res)

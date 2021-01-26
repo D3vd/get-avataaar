@@ -10,13 +10,12 @@ import (
 )
 
 // GenerateURL ...
-func GenerateURL() (url string) {
+func GenerateURL(avatarStyle string) (url string) {
 
 	baseURL := "https://avataaars.io/"
 
 	p := types.Parameters{
 		AccessoriesType: GetRandom(data.AccessoriesType),
-		AvatarStyle:     GetRandom(data.AvatarStyle),
 		ClotheColor:     GetRandom(data.ClotheColor),
 		ClotheType:      GetRandom(data.ClotheType),
 		EyebrowType:     GetRandom(data.EyebrowType),
@@ -29,6 +28,14 @@ func GenerateURL() (url string) {
 		MouthType:       GetRandom(data.MouthType),
 		SkinColor:       GetRandom(data.SkinColor),
 		TopType:         GetRandom(data.TopType),
+	}
+
+	if avatarStyle == "Circle" {
+		p.AvatarStyle = "Circle"
+	} else if avatarStyle == "Transparent" {
+		p.AvatarStyle = "Transparent"
+	} else {
+		p.AvatarStyle = GetRandom(data.AvatarStyle)
 	}
 
 	v, err := query.Values(p)
